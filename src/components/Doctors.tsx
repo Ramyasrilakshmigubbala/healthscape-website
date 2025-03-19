@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Calendar } from 'lucide-react';
@@ -10,7 +9,7 @@ const doctors = [
     specialty: 'Cardiology',
     rating: 4.9,
     reviews: 120,
-    image: '', // Placeholder
+    image: 'https://img.freepik.com/free-photo/woman-doctor-wearing-lab-coat-with-stethoscope-isolated_1303-29791.jpg',
     available: true
   },
   {
@@ -19,7 +18,7 @@ const doctors = [
     specialty: 'Neurology',
     rating: 4.8,
     reviews: 98,
-    image: '', // Placeholder
+    image: 'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg',
     available: true
   },
   {
@@ -28,7 +27,7 @@ const doctors = [
     specialty: 'Pediatrics',
     rating: 4.9,
     reviews: 145,
-    image: '', // Placeholder
+    image: 'https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827776.jpg',
     available: false
   },
   {
@@ -37,7 +36,7 @@ const doctors = [
     specialty: 'Orthopedics',
     rating: 4.7,
     reviews: 87,
-    image: '', // Placeholder
+    image: 'https://img.freepik.com/free-photo/happy-young-male-doctor-with-stethoscope-standing-with-closed-arms_1262-18761.jpg',
     available: true
   }
 ];
@@ -74,10 +73,14 @@ const Doctors = () => {
             style={{ animationDelay: `${0.2 + index * 0.1}s` }}
           >
             <div className="h-64 bg-gradient-to-br from-medical-blue-300 to-medical-teal-300 relative overflow-hidden">
-              {/* Placeholder for doctor image */}
-              <div className="absolute inset-0 flex items-center justify-center text-white">
-                <p className="font-medium">Doctor Image</p>
-              </div>
+              <img 
+                src={doctor.image}
+                alt={`${doctor.name} - ${doctor.specialty}`}
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                onError={(e) => {
+                  e.currentTarget.src = 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=500';
+                }}
+              />
               
               {/* Availability badge */}
               {doctor.available ? (
