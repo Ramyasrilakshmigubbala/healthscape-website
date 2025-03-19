@@ -1,11 +1,9 @@
-
 import React, { useEffect, useState } from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
-import { Calendar, Clock, User, FileText } from 'lucide-react';
+import { Calendar, Clock, User, FileText, Phone } from 'lucide-react';
 
 const Appointment = () => {
-  // Smooth scroll to top on mount
   useEffect(() => {
     window.scrollTo({
       top: 0,
