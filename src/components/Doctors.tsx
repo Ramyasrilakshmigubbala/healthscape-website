@@ -37,7 +37,16 @@ const doctors = [
     specialty: 'Orthopedics',
     rating: 4.7,
     reviews: 87,
-    image: 'https://img.freepik.com/free-photo/happy-young-male-doctor-with-stethoscope-standing-with-closed-arms_1262-18761.jpg',
+    image: 'https://img.freepik.com/free-photo/portrait-doctor-ready-help-patients_23-2149482906.jpg',
+    available: true
+  },
+  {
+    id: 5,
+    name: 'Dr. Rebecca Lee',
+    specialty: 'Dermatology',
+    rating: 4.8,
+    reviews: 112,
+    image: 'https://img.freepik.com/free-photo/woman-doctor-posing-with-arms-folded_23-2148827867.jpg',
     available: true
   }
 ];
