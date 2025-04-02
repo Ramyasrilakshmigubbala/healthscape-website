@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Star, Calendar } from 'lucide-react';
 
 const doctors = [
@@ -42,6 +43,12 @@ const doctors = [
 ];
 
 const Doctors = () => {
+  const navigate = useNavigate();
+  
+  const handleViewProfile = (doctorId: number) => {
+    navigate(`/doctors/${doctorId}`);
+  };
+
   return (
     <div className="section-container bg-medical-blue-50/50">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 animate-fade-in" style={{ animationDelay: "0.1s" }}>
@@ -106,12 +113,12 @@ const Doctors = () => {
                 <span className="text-gray-500 text-sm ml-1">({doctor.reviews} reviews)</span>
               </div>
               
-              <Link 
-                to={`/doctors/${doctor.id}`}
+              <button 
+                onClick={() => handleViewProfile(doctor.id)}
                 className="block w-full bg-white text-medical-blue-600 border border-medical-blue-200 font-medium rounded-lg py-2.5 text-center mb-3 hover:bg-medical-blue-50 transition-colors"
               >
                 View Profile
-              </Link>
+              </button>
               
               <Link 
                 to={`/appointment?doctor=${doctor.id}`}

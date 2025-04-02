@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   Menu, 
   Search, 
@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 export const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +31,13 @@ export const NavBar = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleSearchClick = () => {
+    navigate('/search');
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
   };
 
   const NavItem = ({ text, href = "#", hasDropdown = false }: { text: string, href?: string, hasDropdown?: boolean }) => (
@@ -70,7 +78,10 @@ export const NavBar = () => {
 
           {/* Call to Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="flex items-center text-gray-700 hover:text-medical-blue-600 transition-colors duration-300">
+            <button 
+              className="flex items-center text-gray-700 hover:text-medical-blue-600 transition-colors duration-300"
+              onClick={handleSearchClick}
+            >
               <Search className="h-5 w-5 mr-1" />
               <span>Search</span>
             </button>
@@ -111,23 +122,27 @@ export const NavBar = () => {
         </div>
 
         <nav className="flex flex-col space-y-4 mt-8">
-          <Link to="/" className="text-lg font-medium px-2 py-2 border-b border-gray-100">Home</Link>
-          <Link to="/about" className="text-lg font-medium px-2 py-2 border-b border-gray-100">About Us</Link>
-          <Link to="/departments" className="text-lg font-medium px-2 py-2 border-b border-gray-100">Departments</Link>
-          <Link to="/doctors" className="text-lg font-medium px-2 py-2 border-b border-gray-100">Doctors</Link>
-          <Link to="/resources" className="text-lg font-medium px-2 py-2 border-b border-gray-100">Patient Resources</Link>
-          <Link to="/contact" className="text-lg font-medium px-2 py-2 border-b border-gray-100">Contact</Link>
+          <Link to="/" className="text-lg font-medium px-2 py-2 border-b border-gray-100" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+          <Link to="/about" className="text-lg font-medium px-2 py-2 border-b border-gray-100" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
+          <Link to="/departments" className="text-lg font-medium px-2 py-2 border-b border-gray-100" onClick={() => setIsMobileMenuOpen(false)}>Departments</Link>
+          <Link to="/doctors" className="text-lg font-medium px-2 py-2 border-b border-gray-100" onClick={() => setIsMobileMenuOpen(false)}>Doctors</Link>
+          <Link to="/resources" className="text-lg font-medium px-2 py-2 border-b border-gray-100" onClick={() => setIsMobileMenuOpen(false)}>Patient Resources</Link>
+          <Link to="/contact" className="text-lg font-medium px-2 py-2 border-b border-gray-100" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
         </nav>
 
         <div className="mt-auto">
           <Link 
             to="/appointment" 
             className="block w-full bg-btn-gradient text-white px-4 py-3 rounded-full font-medium text-center shadow-md"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             Book Appointment
           </Link>
           <div className="mt-4 flex justify-between">
-            <button className="flex items-center justify-center w-1/2 text-gray-700 py-2">
+            <button 
+              className="flex items-center justify-center w-1/2 text-gray-700 py-2"
+              onClick={handleSearchClick}
+            >
               <Search className="h-5 w-5 mr-2" />
               <span>Search</span>
             </button>

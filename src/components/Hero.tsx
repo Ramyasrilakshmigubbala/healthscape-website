@@ -74,11 +74,11 @@ const Hero = () => {
         {/* Image section */}
         <div className="relative flex items-center justify-center animate-fade-in" style={{ animationDelay: "0.4s" }}>
           <div className="relative w-full h-[28rem] rounded-2xl overflow-hidden shadow-medical">
-            {/* Placeholder for actual image */}
-            <div className="absolute inset-0 bg-gradient-to-br from-medical-blue-400 to-medical-teal-400 opacity-90"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <p className="text-white text-xl font-medium">Doctor Image Placeholder</p>
-            </div>
+            <img 
+              src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg" 
+              alt="Professional doctor" 
+              className="w-full h-full object-cover"
+            />
           </div>
           
           {/* Floating card */}
