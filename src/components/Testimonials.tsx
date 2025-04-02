@@ -1,27 +1,28 @@
 
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const testimonials = [
   {
     id: 1,
     name: 'Rebecca Matthews',
     treatment: 'Cardiology Patient',
-    image: '', // Placeholder
+    image: 'https://img.freepik.com/free-photo/portrait-beautiful-young-woman-standing-grey-wall_231208-10760.jpg',
     content: 'The care I received at HealthScape was exceptional. Dr. Johnson and her team were attentive, thorough, and truly caring. I felt supported throughout my entire treatment journey.'
   },
   {
     id: 2,
     name: 'David Wilson',
     treatment: 'Orthopedic Surgery',
-    image: '', // Placeholder
+    image: 'https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg',
     content: 'After months of chronic pain, the orthopedic team at HealthScape provided a clear diagnosis and effective treatment plan. The surgery was successful, and their follow-up care was outstanding.'
   },
   {
     id: 3,
     name: 'Maria Gonzalez',
     treatment: 'Maternity Care',
-    image: '', // Placeholder
+    image: 'https://img.freepik.com/free-photo/portrait-young-indian-top-manager-t-shirt-tie-crossed-arms-smiling-white-isolated-wall_496169-1513.jpg',
     content: 'Having my baby at HealthScape was a wonderful experience. The maternity team was supportive, knowledgeable, and made me feel comfortable every step of the way.'
   }
 ];
@@ -56,10 +57,19 @@ const Testimonials = () => {
         <div className="grid md:grid-cols-2">
           {/* Image section */}
           <div className="bg-gradient-to-br from-medical-blue-400 to-medical-teal-400 h-64 md:h-auto relative">
-            {/* Placeholder for testimonial image */}
-            <div className="absolute inset-0 flex items-center justify-center text-white">
-              <p className="font-medium">Patient Image</p>
-            </div>
+            {currentTestimonial.image ? (
+              <div className="w-full h-full absolute inset-0">
+                <img 
+                  src={currentTestimonial.image} 
+                  alt={`${currentTestimonial.name}`}
+                  className="w-full h-full object-cover" 
+                />
+              </div>
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center text-white">
+                <p className="font-medium">Patient Image</p>
+              </div>
+            )}
             
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/30 to-transparent"></div>
             <div className="absolute bottom-6 left-6 md:hidden">
