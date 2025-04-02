@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import { Input } from '@/components/ui/input';
-import { Search } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Search, Calendar } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 // Sample doctors data
 const doctorsData = [
@@ -14,7 +15,7 @@ const doctorsData = [
     specialty: 'Cardiology',
     rating: 4.9,
     reviews: 120,
-    image: '/placeholder.svg',
+    image: 'https://img.freepik.com/free-photo/woman-doctor-wearing-lab-coat-with-stethoscope-isolated_1303-29791.jpg',
     available: true,
     bio: 'Dr. Johnson specializes in interventional cardiology with over 15 years of experience treating complex cardiac conditions.'
   },
@@ -24,7 +25,7 @@ const doctorsData = [
     specialty: 'Neurology',
     rating: 4.8,
     reviews: 98,
-    image: '/placeholder.svg',
+    image: 'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg',
     available: true,
     bio: 'Dr. Chen is a board-certified neurologist specializing in stroke treatment and neurodegenerative disorders.'
   },
@@ -34,7 +35,7 @@ const doctorsData = [
     specialty: 'Pediatrics',
     rating: 4.9,
     reviews: 145,
-    image: '/placeholder.svg',
+    image: 'https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827776.jpg',
     available: false,
     bio: 'Dr. Rodriguez focuses on pediatric care and childhood development, with special interest in preventive healthcare for children.'
   },
@@ -44,7 +45,7 @@ const doctorsData = [
     specialty: 'Orthopedics',
     rating: 4.7,
     reviews: 87,
-    image: '/placeholder.svg',
+    image: 'https://img.freepik.com/free-photo/happy-young-male-doctor-with-stethoscope-standing-with-closed-arms_1262-18761.jpg',
     available: true,
     bio: 'Dr. Wilson specializes in sports medicine and joint replacement surgery with expertise in minimally invasive techniques.'
   }
@@ -61,6 +62,7 @@ const Doctors = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredDoctors, setFilteredDoctors] = useState(doctorsData);
+  const navigate = useNavigate();
 
   // Filter doctors based on search term
   useEffect(() => {
@@ -78,6 +80,11 @@ const Doctors = () => {
     
     setFilteredDoctors(filtered);
   }, [searchTerm]);
+
+  const handleViewProfile = (doctorId: number) => {
+    // In a real app, this would navigate to a detailed doctor profile
+    navigate(`/doctors/${doctorId}`);
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -114,6 +121,9 @@ const Doctors = () => {
                       src={doctor.image} 
                       alt={doctor.name} 
                       className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=500';
+                      }}
                     />
                     {doctor.available ? (
                       <div className="absolute top-4 left-4 bg-green-100 text-green-800 text-xs font-medium px-2.5 py-1 rounded-full">
@@ -140,13 +150,17 @@ const Doctors = () => {
                     </div>
                     
                     <div className="grid grid-cols-2 gap-3">
-                      <button className="px-4 py-2 border border-medical-blue-200 text-medical-blue-700 rounded-lg hover:bg-medical-blue-50">
+                      <button 
+                        onClick={() => handleViewProfile(doctor.id)}
+                        className="px-4 py-2 border border-medical-blue-200 text-medical-blue-700 rounded-lg hover:bg-medical-blue-50"
+                      >
                         View Profile
                       </button>
                       <Link 
                         to={`/appointment?doctor=${doctor.id}`}
-                        className="px-4 py-2 bg-btn-gradient text-white rounded-lg text-center"
+                        className="px-4 py-2 bg-btn-gradient text-white rounded-lg text-center flex items-center justify-center"
                       >
+                        <Calendar className="h-4 w-4 mr-2" />
                         Book Now
                       </Link>
                     </div>

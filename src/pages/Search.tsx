@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import { Search as SearchIcon } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Search = () => {
   // Smooth scroll to top on mount
@@ -14,6 +15,7 @@ const Search = () => {
   }, []);
 
   const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
   
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -57,19 +59,19 @@ const Search = () => {
             <div className="p-6 bg-white rounded-xl shadow-medical">
               <h2 className="text-xl font-semibold mb-4">Search by Doctor</h2>
               <p className="text-gray-600 mb-4">Find a specific doctor by name, specialty, or department.</p>
-              <button className="text-medical-blue-600 font-medium hover:underline">View All Doctors</button>
+              <Link to="/doctors" className="text-medical-blue-600 font-medium hover:underline">View All Doctors</Link>
             </div>
             
             <div className="p-6 bg-white rounded-xl shadow-medical">
               <h2 className="text-xl font-semibold mb-4">Search by Department</h2>
               <p className="text-gray-600 mb-4">Browse our departments and learn about the services we offer.</p>
-              <button className="text-medical-blue-600 font-medium hover:underline">View All Departments</button>
+              <Link to="/departments" className="text-medical-blue-600 font-medium hover:underline">View All Departments</Link>
             </div>
             
             <div className="p-6 bg-white rounded-xl shadow-medical">
               <h2 className="text-xl font-semibold mb-4">Search by Service</h2>
               <p className="text-gray-600 mb-4">Find information about specific treatments and medical services.</p>
-              <button className="text-medical-blue-600 font-medium hover:underline">View All Services</button>
+              <Link to="/services" className="text-medical-blue-600 font-medium hover:underline">View All Services</Link>
             </div>
           </div>
         </div>
