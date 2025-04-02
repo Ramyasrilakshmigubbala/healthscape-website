@@ -1,36 +1,8 @@
-
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Star, Calendar } from 'lucide-react';
 
 const doctors = [
-  {
-    id: 1,
-    name: 'Dr. Sarah Johnson',
-    specialty: 'Cardiology',
-    rating: 4.9,
-    reviews: 120,
-    image: 'https://img.freepik.com/free-photo/woman-doctor-wearing-lab-coat-with-stethoscope-isolated_1303-29791.jpg',
-    available: true
-  },
-  {
-    id: 2,
-    name: 'Dr. Michael Chen',
-    specialty: 'Neurology',
-    rating: 4.8,
-    reviews: 98,
-    image: 'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg',
-    available: true
-  },
-  {
-    id: 3,
-    name: 'Dr. Emily Rodriguez',
-    specialty: 'Pediatrics',
-    rating: 4.9,
-    reviews: 145,
-    image: 'https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827776.jpg',
-    available: false
-  },
   {
     id: 4,
     name: 'Dr. James Wilson',
@@ -81,7 +53,7 @@ const Doctors = () => {
         </Link>
       </div>
       
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8">
         {doctors.map((doctor, index) => (
           <div 
             key={doctor.id} 

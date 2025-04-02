@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
@@ -9,36 +8,6 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 // Sample doctors data
 const doctorsData = [
-  {
-    id: 1,
-    name: 'Dr. Sarah Johnson',
-    specialty: 'Cardiology',
-    rating: 4.9,
-    reviews: 120,
-    image: 'https://img.freepik.com/free-photo/woman-doctor-wearing-lab-coat-with-stethoscope-isolated_1303-29791.jpg',
-    available: true,
-    bio: 'Dr. Johnson specializes in interventional cardiology with over 15 years of experience treating complex cardiac conditions.'
-  },
-  {
-    id: 2,
-    name: 'Dr. Michael Chen',
-    specialty: 'Neurology',
-    rating: 4.8,
-    reviews: 98,
-    image: 'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg',
-    available: true,
-    bio: 'Dr. Chen is a board-certified neurologist specializing in stroke treatment and neurodegenerative disorders.'
-  },
-  {
-    id: 3,
-    name: 'Dr. Emily Rodriguez',
-    specialty: 'Pediatrics',
-    rating: 4.9,
-    reviews: 145,
-    image: 'https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827776.jpg',
-    available: false,
-    bio: 'Dr. Rodriguez focuses on pediatric care and childhood development, with special interest in preventive healthcare for children.'
-  },
   {
     id: 4,
     name: 'Dr. James Wilson',
@@ -122,7 +91,7 @@ const Doctors = () => {
           </div>
           
           {/* Doctor listings */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8">
             {filteredDoctors.length > 0 ? (
               filteredDoctors.map((doctor) => (
                 <div key={doctor.id} className="bg-white rounded-xl shadow-medical overflow-hidden hover:shadow-lg transition-all duration-300">
