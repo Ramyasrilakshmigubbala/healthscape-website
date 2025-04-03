@@ -9,7 +9,7 @@ const doctors = [
     specialty: 'Orthopedics',
     rating: 4.7,
     reviews: 87,
-    image: 'https://img.freepik.com/free-photo/portrait-doctor-ready-help-patients_23-2149482906.jpg',
+    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=500',
     available: true
   },
   {
@@ -18,7 +18,7 @@ const doctors = [
     specialty: 'Dermatology',
     rating: 4.8,
     reviews: 112,
-    image: 'https://img.freepik.com/free-photo/woman-doctor-posing-with-arms-folded_23-2148827867.jpg',
+    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=500',
     available: true
   }
 ];
