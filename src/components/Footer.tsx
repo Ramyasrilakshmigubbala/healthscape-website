@@ -162,24 +162,7 @@ const Footer = () => {
         </div>
         
         {/* Newsletter */}
-        <div className="mt-12 py-8 border-t border-gray-100 animate-fade-in" style={{ animationDelay: "0.5s" }}>
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Subscribe to Our Newsletter</h3>
-              <p className="text-gray-600">Stay updated with the latest medical advancements and hospital news.</p>
-            </div>
-            <div className="flex">
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
-                className="flex-grow px-4 py-3 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-medical-blue-500 focus:border-transparent"
-              />
-              <button className="bg-medical-blue-600 text-white px-6 py-3 rounded-r-lg hover:bg-medical-blue-700 transition-colors">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
+       
         
         {/* Copyright */}
         <div className="py-6 text-center border-t border-gray-100 animate-fade-in" style={{ animationDelay: "0.6s" }}>

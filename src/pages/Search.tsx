@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
@@ -19,8 +18,10 @@ const Search = () => {
   
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Searching for:', searchQuery);
-    // Here you would typically perform the search operation
+    if (searchQuery.trim()) {
+      // Navigate to doctors page with search query as URL parameter
+      navigate(`/doctors?search=${encodeURIComponent(searchQuery)}`);
+    }
   };
 
   return (
@@ -28,30 +29,13 @@ const Search = () => {
       <NavBar />
       
       <main className="flex-grow pt-24">
-        <div className="section-container">
-          <h1 className="text-3xl md:text-4xl font-bold mb-6">Search</h1>
-          <p className="text-gray-600 mb-8">
-            Find information about our doctors, departments, services, and more.
-          </p>
+      <div className="section-container">
+        <h1 className="text-3xl md:text-4xl font-bold mb-6">Search</h1>
+          
           
           <div className="max-w-2xl mx-auto mb-12">
             <form onSubmit={handleSearch} className="flex items-center">
-              <div className="relative flex-grow">
-                <SearchIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                <input 
-                  type="text" 
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-medical-blue-500 focus:border-transparent"
-                  placeholder="Search for doctors, departments, services..."
-                />
-              </div>
-              <button 
-                type="submit" 
-                className="bg-medical-blue-600 text-white px-6 py-3 rounded-r-lg hover:bg-medical-blue-700 transition-colors"
-              >
-                Search
-              </button>
+            
             </form>
           </div>
           

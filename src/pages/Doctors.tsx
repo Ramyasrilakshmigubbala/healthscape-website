@@ -1,10 +1,9 @@
-
 import React, { useEffect, useState } from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import { Input } from '@/components/ui/input';
 import { Search, Calendar } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 // Sample doctors data
@@ -42,7 +41,6 @@ const Doctors = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredDoctors, setFilteredDoctors] = useState(doctorsData);
-  const navigate = useNavigate();
 
   // Filter doctors based on search term
   useEffect(() => {
@@ -60,11 +58,6 @@ const Doctors = () => {
     
     setFilteredDoctors(filtered);
   }, [searchTerm]);
-
-  const handleViewProfile = (doctorId: number) => {
-    // In a real app, this would navigate to a detailed doctor profile
-    navigate(`/doctors/${doctorId}`);
-  };
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -129,13 +122,7 @@ const Doctors = () => {
                       </div>
                     </div>
                     
-                    <div className="grid grid-cols-2 gap-3">
-                      <button 
-                        onClick={() => handleViewProfile(doctor.id)}
-                        className="px-4 py-2 border border-medical-blue-200 text-medical-blue-700 rounded-lg hover:bg-medical-blue-50"
-                      >
-                        View Profile
-                      </button>
+                    <div className="grid grid-cols-1 gap-3">
                       <Link 
                         to={`/appointment?doctor=${doctor.id}`}
                         className="px-4 py-2 bg-btn-gradient text-white rounded-lg text-center flex items-center justify-center"

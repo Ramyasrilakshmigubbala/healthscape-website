@@ -27,13 +27,13 @@ const PatientResources = () => {
             <div className="p-6 bg-white rounded-xl shadow-medical">
               <h2 className="text-xl font-semibold mb-4">Patient Forms</h2>
               <p className="text-gray-600 mb-4">Save time during your visit by downloading and completing these forms before your appointment.</p>
-              <button className="text-medical-blue-600 font-medium hover:underline">Download Forms</button>
+             
             </div>
             
             <div className="p-6 bg-white rounded-xl shadow-medical">
               <h2 className="text-xl font-semibold mb-4">Insurance Information</h2>
               <p className="text-gray-600 mb-4">Learn about accepted insurance plans and payment options available at our facility.</p>
-              <button className="text-medical-blue-600 font-medium hover:underline">View Insurance Details</button>
+              
             </div>
           </div>
         </div>
